@@ -14,6 +14,4 @@
 - Buat Modul Artikel, ada pengaturan hak akses per user
 - Buat modul gallery, upload menggunakan cara terbaru
 - Buat modul slide, upload menggunakan cara terbaru
-
 - Hubungkan frontend dengan backend(Di spesifikkan lagi)
-- 
