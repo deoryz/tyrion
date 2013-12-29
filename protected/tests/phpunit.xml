@@ -4,10 +4,16 @@
 		convertNoticesToExceptions="true"
 		convertWarningsToExceptions="true"
 		stopOnFailure="false">
-
+<!--
 	<selenium>
 		<browser name="Internet Explorer" browser="*iexplore" />
 		<browser name="Firefox" browser="*firefox" />
+		<browser name="Chrome" browser="*chrome" />
 	</selenium>
-
+-->
+	<testsuites>
+	  <testsuite name="test">
+	    <directory>test/*Test.php</directory>
+	  </testsuite>
+	</testsuites>
 </phpunit>

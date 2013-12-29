@@ -61,6 +61,7 @@ class m131209_062851_first_table extends CDbMigration
 		$this->execute('
 			CREATE TABLE IF NOT EXISTS `user` (
 			  `id` int(11) NOT NULL AUTO_INCREMENT,
+			  `group_id` int NOT NULL,
 			  `user` varchar(100) NOT NULL,
 			  `email` varchar(100) NOT NULL,
 			  `pass` varchar(100) NOT NULL,
@@ -71,9 +72,26 @@ class m131209_062851_first_table extends CDbMigration
 		');	
 		// dump tabel user
 		$this->execute("
-			INSERT INTO `user` (`id`, `user`, `email`, `pass`, `last_login`, `sts`) VALUES
-			(1, 'root', 'deo@markdesign.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '0000-00-00 00:00:00', 1),
-			(2, 'admin', 'deoryzpandu@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '0000-00-00 00:00:00', 1);
+			INSERT INTO `user` (`id`, `user`, `group_id`, `email`, `pass`, `last_login`, `sts`) VALUES
+			(1, 'root', 1, 'deo@markdesign.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '0000-00-00 00:00:00', 1),
+			(2, 'admin', 1, 'deoryzpandu@gmail.com', '7c4a8d09ca3762af61e59520943dc26494f8941b', '0000-00-00 00:00:00', 1);
+		");	
+
+		// buat tabel user_group
+		$this->execute("DROP TABLE IF EXISTS `user_group`;");
+		$this->execute('
+			CREATE TABLE IF NOT EXISTS `user_group` (
+			  `id` int(11) NOT NULL AUTO_INCREMENT,
+			  `name` varchar(100) NOT NULL,
+			  `label` varchar(100) NOT NULL,
+			  `date_update` TIMESTAMP NOT NULL,
+			  PRIMARY KEY (`id`)
+			) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2;
+		');	
+		// dump tabel user_group
+		$this->execute("
+			INSERT INTO `user_group` (`id`, `name`, `label`, `date_update`) VALUES
+			(1, 'administrator', 'Administrator', NOW());
 		");	
 
 		// buat tabel setting

@@ -4,7 +4,7 @@
  * Change the following URL based on your server configuration
  * Make sure the URL ends with a slash so that we can use relative URLs in test cases
  */
-define('TEST_BASE_URL','http://localhost/testdrive/index-test.php/');
+define('TEST_BASE_URL','http://localhost/koperasi-new/index-test.php/');
 
 /**
  * The base class for functional test cases.
@@ -13,7 +13,7 @@ define('TEST_BASE_URL','http://localhost/testdrive/index-test.php/');
  */
 class WebTestCase extends CWebTestCase
 {
-	/**
+    /**
 	 * Sets up before each test method runs.
 	 * This mainly sets the base URL for the test application.
 	 */
@@ -22,4 +22,9 @@ class WebTestCase extends CWebTestCase
 		parent::setUp();
 		$this->setBrowserUrl(TEST_BASE_URL);
 	}
+
+	public function testShow()
+    {
+        $this->open('admin/home/index');
+    }
 }

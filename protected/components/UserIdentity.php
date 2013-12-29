@@ -27,6 +27,10 @@ class UserIdentity extends CUserIdentity
 			$session = new CDbHttpSession;
 			$session->open();
 			$session['data.login.admin'] = $data->attributes;
+
+			$group = UserGroup::model()->findByPk($data->group_id);
+			$this->username = $group->name;
+
 		}
 		
 		
